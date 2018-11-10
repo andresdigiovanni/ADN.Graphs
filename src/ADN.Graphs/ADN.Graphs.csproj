@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>1.0.0</Version>
+    <Title>ADN.Graphs</Title>
+    <Authors>Andrés Di Giovanni</Authors>
+    <Company>ADN</Company>	
+    <Product>ADN.Graphs</Product>
+    <Description>ADN.Graphs is a cross-platform open-source library which provides graphs utilities to .NET developers</Description>
+    <Copyright>Copyright © Andrés Di Giovanni 2018</Copyright>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseUrl>http://github.com/andresdigiovanni/ADN.Graphs/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>http://github.com/andresdigiovanni/ADN.Graphs</PackageProjectUrl>
+    <PackageTags>Graphs, Dijkstra</PackageTags>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl> 
+    <RepositoryUrl>http://github.com/andresdigiovanni/ADN.Graphs</RepositoryUrl> 
+    <PackageIconUrl>http://raw.githubusercontent.com/andresdigiovanni/ADN.Graphs/master/icon.png</PackageIconUrl>
+  </PropertyGroup>
+
+</Project>

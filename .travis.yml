@@ -1,0 +1,9 @@
+language: csharp
+solution: ADN.Graphs.sln
+mono: none
+dotnet: 2.0.0
+script:
+  - dotnet restore
+  - dotnet build ./src/ADN.Graphs/
+  - dotnet build ./tests/ADN.Graphs.Tests/
+  - dotnet test ./tests/ADN.Graphs.Tests/
