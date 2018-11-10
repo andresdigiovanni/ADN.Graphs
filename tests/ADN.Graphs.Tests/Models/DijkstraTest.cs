@@ -12,14 +12,7 @@ namespace ADN.Graphs.Tests
         [ClassData(typeof(DijkstraData))]
         public void Compute(double[,] graph, int sourceNode, int destinationNode, int[] expected)
         {
-            var output = Dijkstra.Compute(graph, sourceNode, destinationNode);
-            int[] result = null;
-
-            if (!ReferenceEquals(output, null))
-            {
-                result = output.ToArray();
-            }
-
+            var result = Dijkstra.Compute(graph, sourceNode, destinationNode);
             Assert.Equal(expected, result);
         }
 
