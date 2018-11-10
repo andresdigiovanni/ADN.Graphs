@@ -10,12 +10,12 @@
     <Description>ADN.Graphs is a cross-platform open-source library which provides graphs utilities to .NET developers</Description>
     <Copyright>Copyright © Andrés Di Giovanni 2018</Copyright>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageLicenseUrl>http://github.com/andresdigiovanni/ADN.Graphs/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>http://github.com/andresdigiovanni/ADN.Graphs</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/andresdigiovanni/ADN.Graphs/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/andresdigiovanni/ADN.Graphs</PackageProjectUrl>
     <PackageTags>Graphs, Dijkstra</PackageTags>
     <PublishRepositoryUrl>true</PublishRepositoryUrl> 
-    <RepositoryUrl>http://github.com/andresdigiovanni/ADN.Graphs</RepositoryUrl> 
-    <PackageIconUrl>http://raw.githubusercontent.com/andresdigiovanni/ADN.Graphs/master/icon.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/andresdigiovanni/ADN.Graphs</RepositoryUrl> 
+    <PackageIconUrl>https://raw.githubusercontent.com/andresdigiovanni/ADN.Graphs/master/icon.png</PackageIconUrl>
   </PropertyGroup>
 
 </Project>
