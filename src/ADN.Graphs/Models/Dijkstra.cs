@@ -16,11 +16,23 @@ namespace ADN.Graphs
         /// <param name="sourceNode">Source graph node.</param>
         /// <param name="destinationNode">Destination graph node.</param>
         /// <returns>Minimum path.</returns>
+        public static int[] Compute(Graph graph, int sourceNode, int destinationNode)
+        {
+            return Compute(graph.GetMatrix(), sourceNode, destinationNode);
+        }
+
+        /// <summary>
+        /// Get the minimum path using Dijkstra algorithm.
+        /// </summary>
+        /// <param name="graph">Graph to calculate the minimum path.</param>
+        /// <param name="sourceNode">Source graph node.</param>
+        /// <param name="destinationNode">Destination graph node.</param>
+        /// <returns>Minimum path.</returns>
         public static int[] Compute(double[,] graph, int sourceNode, int destinationNode)
         {
             var length = graph.GetLength(0);
-
             var distance = new double[length];
+
             for (int i = 0; i < length; i++)
             {
                 distance[i] = double.MaxValue;
