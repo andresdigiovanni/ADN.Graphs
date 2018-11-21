@@ -15,11 +15,13 @@ namespace ADN.Graphs
 
         private List<Edge> _edges;
         private double[,] _matrix;
+        private bool _directed;
 
-        public Graph(int verticesCount)
+        public Graph(int verticesCount, bool directed = false)
         {
             _edges = new List<Edge>();
             _matrix = new double[verticesCount, verticesCount];
+            _directed = directed;
 
             for (int i = 0; i < verticesCount; i++)
             {
@@ -47,13 +49,37 @@ namespace ADN.Graphs
 
         public void AddEdge(Edge edge)
         {
+            _edges.Add(edge);
             _matrix[edge.Source, edge.Destination] = edge.Weight;
-            _matrix[edge.Destination, edge.Source] = edge.Weight;
+            if (!_directed)
+            {
+                _matrix[edge.Destination, edge.Source] = edge.Weight;
+            }
         }
 
         public double[,] GetMatrix()
         {
             return _matrix;
+        }
+
+        public Edge[] Adjacency(int edge)
+        {
+            List<Edge> edges = new List<Edge>();
+
+            for (int i = 0; i < _matrix.GetLength(0); i++)
+            {
+                if (_matrix[edge, i] != 0)
+                {
+                    edges.Add(new Edge
+                    {
+                        Source = edge,
+                        Destination = i,
+                        Weight = _matrix[edge, i]
+                    });
+                }
+            }
+
+            return edges.ToArray();
         }
     }
 }

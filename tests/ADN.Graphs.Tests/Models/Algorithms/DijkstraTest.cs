@@ -9,22 +9,24 @@ namespace ADN.Graphs.Tests
     public class DijkstraTest
     {
         [Theory]
-        [ClassData(typeof(DijkstraData_Graph))]
-        public void Compute_Graph(Graph graph, int sourceNode, int destinationNode, int[] expected)
+        [ClassData(typeof(ShortestPathData))]
+        public void GetShortestPath(Graph graph, int sourceNode, int destinationNode, int[] expected)
         {
-            var result = Dijkstra.Compute(graph, sourceNode, destinationNode);
+            ShortestPath dijkstra = new Dijkstra(graph, sourceNode);
+            var result = dijkstra.GetShortestPath(destinationNode);
             Assert.Equal(expected, result);
         }
 
         [Theory]
-        [ClassData(typeof(DijkstraData_Matrix))]
-        public void Compute_Matrix(double[,] graph, int sourceNode, int destinationNode, int[] expected)
+        [ClassData(typeof(WeightData))]
+        public void GetWeight(Graph graph, int sourceNode, int destinationNode, double expected)
         {
-            var result = Dijkstra.Compute(graph, sourceNode, destinationNode);
+            ShortestPath dijkstra = new Dijkstra(graph, sourceNode);
+            var result = dijkstra.GetWeight(destinationNode);
             Assert.Equal(expected, result);
         }
 
-        public class DijkstraData_Graph : IEnumerable<object[]>
+        public class ShortestPathData : IEnumerable<object[]>
         {
             public IEnumerator<object[]> GetEnumerator()
             {
@@ -40,17 +42,17 @@ namespace ADN.Graphs.Tests
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         }
 
-        public class DijkstraData_Matrix : IEnumerable<object[]>
+        public class WeightData : IEnumerable<object[]>
         {
             public IEnumerator<object[]> GetEnumerator()
             {
-                var graph = GetMatrix();
+                var graph = GetGraph();
 
-                yield return new object[] { graph, 0, 9, new int[] { 0, 8, 5, 4, 11, 1, 9 } };
-                yield return new object[] { graph, 0, 2, new int[] { 0, 8, 2 } };
-                yield return new object[] { graph, 0, 10, new int[] { } };
-                yield return new object[] { graph, 0, 11, new int[] { 0, 8, 5, 4, 11 } };
-                yield return new object[] { graph, 0, 1, new int[] { 0, 8, 5, 4, 11, 1 } };
+                yield return new object[] { graph, 0, 9, 42 };
+                yield return new object[] { graph, 0, 2, 26 };
+                yield return new object[] { graph, 0, 10, double.MaxValue };
+                yield return new object[] { graph, 0, 11, 31 };
+                yield return new object[] { graph, 0, 1, 37 };
             }
 
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
