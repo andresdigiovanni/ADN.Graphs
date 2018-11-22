@@ -45,7 +45,6 @@ namespace ADN.Graphs
 
                     if (_distance[u] + weight < _distance[v])
                     {
-                        Console.WriteLine("Graph contains negative weight cycle.");
                         throw new Exception("Graph contains negative weight cycle.");
                     }
                 }

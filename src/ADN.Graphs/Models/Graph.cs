@@ -13,18 +13,21 @@ namespace ADN.Graphs
             public double Weight;
         }
 
-        private List<Edge> _edges;
+        private List<Edge>[] _adjacencyEdges;
         private double[,] _matrix;
         private bool _directed;
 
         public Graph(int verticesCount, bool directed = false)
         {
-            _edges = new List<Edge>();
+            EdgesCount = 0;
+            _adjacencyEdges = new List<Edge>[verticesCount];
             _matrix = new double[verticesCount, verticesCount];
             _directed = directed;
 
             for (int i = 0; i < verticesCount; i++)
             {
+                _adjacencyEdges[i] = new List<Edge>();
+
                 for (int j = 0; j < verticesCount; j++)
                 {
                     _matrix[i, j] = 0;
@@ -37,22 +40,22 @@ namespace ADN.Graphs
             get { return _matrix.GetLength(0); }
         }
 
-        public int EdgesCount
-        {
-            get { return Edges.Length; }
-        }
-
-        public Edge[] Edges
-        {
-            get { return _edges.ToArray(); }
-        }
+        public int EdgesCount { get; private set; }
 
         public void AddEdge(Edge edge)
         {
-            _edges.Add(edge);
+            EdgesCount++;
+            _adjacencyEdges[edge.Source].Add(edge);
             _matrix[edge.Source, edge.Destination] = edge.Weight;
+
             if (!_directed)
             {
+                _adjacencyEdges[edge.Destination].Add(
+                    new Edge() {
+                        Source = edge.Destination,
+                        Destination = edge.Source,
+                        Weight = edge.Weight
+                });
                 _matrix[edge.Destination, edge.Source] = edge.Weight;
             }
         }
@@ -64,22 +67,7 @@ namespace ADN.Graphs
 
         public Edge[] Adjacency(int edge)
         {
-            List<Edge> edges = new List<Edge>();
-
-            for (int i = 0; i < _matrix.GetLength(0); i++)
-            {
-                if (_matrix[edge, i] != 0)
-                {
-                    edges.Add(new Edge
-                    {
-                        Source = edge,
-                        Destination = i,
-                        Weight = _matrix[edge, i]
-                    });
-                }
-            }
-
-            return edges.ToArray();
+            return _adjacencyEdges[edge].ToArray();
         }
     }
 }
