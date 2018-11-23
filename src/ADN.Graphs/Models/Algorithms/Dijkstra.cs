@@ -11,12 +11,10 @@ namespace ADN.Graphs
     public class Dijkstra : ShortestPath
     {
         /// <summary>
-        /// Get the minimum path using Dijkstra algorithm.
+        /// Dijkstra algorithm to get the minimum path.
         /// </summary>
         /// <param name="graph">Graph to calculate the minimum path.</param>
         /// <param name="sourceNode">Source graph node.</param>
-        /// <param name="destinationNode">Destination graph node.</param>
-        /// <returns>Minimum path.</returns>
         public Dijkstra(Graph graph, int sourceNode)
         {
             double[,] matrix = graph.GetMatrix();

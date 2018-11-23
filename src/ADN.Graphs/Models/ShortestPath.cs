@@ -25,6 +25,11 @@ namespace ADN.Graphs
             _distance[sourceNode] = 0;
         }
 
+        /// <summary>
+        /// Get the minimum path.
+        /// </summary>
+        /// <param name="destinationNode">Destination graph node.</param>
+        /// <returns>Minimum path.</returns>
         public int[] GetShortestPath(int destinationNode)
         {
             if (_distance[destinationNode] == double.MaxValue)
@@ -43,6 +48,11 @@ namespace ADN.Graphs
             return path.ToArray();
         }
 
+        /// <summary>
+        /// Get the minimum weight.
+        /// </summary>
+        /// <param name="destinationNode">Destination graph node.</param>
+        /// <returns>Minimum weight.</returns>
         public double GetWeight(int destinationNode)
         {
             return _distance[destinationNode];

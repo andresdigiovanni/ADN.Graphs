@@ -5,8 +5,16 @@ using System.Text;
 
 namespace ADN.Graphs
 {
+    /// <summary>
+    /// A static class that implements BellmanFord algorithm.
+    /// </summary>
     public class BellmanFord : ShortestPath
     {
+        /// <summary>
+        /// BellmanFord algorithm to get the minimum path.
+        /// </summary>
+        /// <param name="graph">Graph to calculate the minimum path.</param>
+        /// <param name="sourceNode">Source graph node.</param>
         public BellmanFord(Graph graph, int sourceNode)
         {
             int verticesCount = graph.VerticesCount;
