@@ -6,7 +6,7 @@ using System.Text;
 namespace ADN.Graphs
 {
     /// <summary>
-    /// A static class that implements BellmanFord algorithm.
+    /// A class that implements BellmanFord algorithm.
     /// </summary>
     public class BellmanFord : ShortestPath
     {

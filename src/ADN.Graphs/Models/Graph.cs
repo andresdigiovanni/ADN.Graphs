@@ -4,8 +4,14 @@ using System.Text;
 
 namespace ADN.Graphs
 {
+    /// <summary>
+    /// A class that represents a graph.
+    /// </summary>
     public class Graph
     {
+        /// <summary>
+        /// Represents an edge of the graph.
+        /// </summary>
         public struct Edge
         {
             public int Source;
@@ -17,6 +23,11 @@ namespace ADN.Graphs
         private double[,] _matrix;
         private bool _directed;
 
+        /// <summary>
+        /// Class constructor.
+        /// </summary>
+        /// <param name="verticesCount">Number of vertices in the graph.</param>
+        /// <param name="directed">True if is a direct graph, false otherwise.</param>
         public Graph(int verticesCount, bool directed = false)
         {
             EdgesCount = 0;
@@ -35,13 +46,23 @@ namespace ADN.Graphs
             }
         }
 
+        /// <summary>
+        /// Number of vertices in the graph.
+        /// </summary>
         public int VerticesCount
         {
             get { return _matrix.GetLength(0); }
         }
 
+        /// <summary>
+        /// Number of edges in the graph.
+        /// </summary>
         public int EdgesCount { get; private set; }
 
+        /// <summary>
+        /// Add an edge in the graph.
+        /// </summary>
+        /// <param name="edge">Edge to add.</param>
         public void AddEdge(Edge edge)
         {
             EdgesCount++;
@@ -60,14 +81,23 @@ namespace ADN.Graphs
             }
         }
 
+        /// <summary>
+        /// Get a mtatrix that represents the graph.
+        /// </summary>
+        /// <returns>A mtatrix that represents the graph.</returns>
         public double[,] GetMatrix()
         {
             return _matrix;
         }
 
-        public Edge[] Adjacency(int edge)
+        /// <summary>
+        /// Gets the edges that connects a given vertex to the adjancency vertices.
+        /// </summary>
+        /// <param name="vertex">Origen vertex.</param>
+        /// <returns>Edges that connects with the adjancency vertices.</returns>
+        public Edge[] Adjacency(int vertex)
         {
-            return _adjacencyEdges[edge].ToArray();
+            return _adjacencyEdges[vertex].ToArray();
         }
     }
 }

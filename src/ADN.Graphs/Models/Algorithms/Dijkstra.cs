@@ -6,7 +6,7 @@ using System.Text;
 namespace ADN.Graphs
 {
     /// <summary>
-    /// A static class that implements Dijkstra algorithm.
+    /// A class that implements Dijkstra algorithm.
     /// </summary>
     public class Dijkstra : ShortestPath
     {
