@@ -8,13 +8,27 @@ namespace ADN.Graphs
     /// <summary>
     /// A class that implements Dijkstra algorithm.
     /// </summary>
-    public class Dijkstra : ShortestPath
+    public class Dijkstra : ShortestPath, IShortestPathAlgorithm
     {
         /// <summary>
         /// Dijkstra algorithm to get the minimum path.
         /// </summary>
         /// <param name="graph">Graph to calculate the minimum path.</param>
         /// <param name="sourceNode">Source graph node.</param>
+        /// <example>
+        /// <code lang="csharp">
+        /// var graph = new double[,]
+        /// {
+        /// //    0   1   2   3
+        ///     { 0,  3,  0,  0 }, // 0
+        ///     { 0,  0,  5,  0 }, // 1
+        ///     { 0,  0,  0,  9 }, // 2
+        ///     { 0,  0,  0,  0 }, // 3
+        /// };
+        /// var sourceNode = 0;
+        /// var dijkstra = new Dijkstra(graph, sourceNode);
+        /// </code>
+        /// </example>
         public Dijkstra(Graph graph, int sourceNode)
         {
             double[,] matrix = graph.GetMatrix();

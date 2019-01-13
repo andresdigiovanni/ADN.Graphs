@@ -30,6 +30,26 @@ namespace ADN.Graphs
         /// </summary>
         /// <param name="destinationNode">Destination graph node.</param>
         /// <returns>Minimum path.</returns>
+        /// <example>
+        /// <code lang="csharp">
+        /// var graph = new double[,]
+        /// {
+        /// //    0   1   2   3
+        ///     { 0,  3,  0,  0 }, // 0
+        ///     { 0,  0,  5,  0 }, // 1
+        ///     { 0,  0,  0,  9 }, // 2
+        ///     { 0,  0,  0,  0 }, // 3
+        /// };
+        /// var sourceNode = 0;
+        /// var destinationNode = 3;
+        /// var bellmanFord = new BellmanFord(graph, sourceNode);
+        /// var result = bellmanFord.GetShortestPath(destinationNode);
+        /// 
+        /// /*
+        /// result is { 0, 1, 2, 3 }
+        /// */
+        /// </code>
+        /// </example>
         public int[] GetShortestPath(int destinationNode)
         {
             if (_distance[destinationNode] == double.MaxValue)
@@ -53,6 +73,26 @@ namespace ADN.Graphs
         /// </summary>
         /// <param name="destinationNode">Destination graph node.</param>
         /// <returns>Minimum weight.</returns>
+        /// <example>
+        /// <code lang="csharp">
+        /// var graph = new double[,]
+        /// {
+        /// //    0   1   2   3
+        ///     { 0,  3,  0,  0 }, // 0
+        ///     { 0,  0,  5,  0 }, // 1
+        ///     { 0,  0,  0,  9 }, // 2
+        ///     { 0,  0,  0,  0 }, // 3
+        /// };
+        /// var sourceNode = 0;
+        /// var destinationNode = 3;
+        /// var bellmanFord = new BellmanFord(graph, sourceNode);
+        /// var result = bellmanFord.GetWeight(destinationNode);
+        /// 
+        /// /*
+        /// result is 17
+        /// */
+        /// </code>
+        /// </example>
         public double GetWeight(int destinationNode)
         {
             return _distance[destinationNode];

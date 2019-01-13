@@ -12,7 +12,7 @@ namespace ADN.Graphs.Tests
         [ClassData(typeof(ShortestPathData))]
         public void GetShortestPath(Graph graph, int sourceNode, int destinationNode, int[] expected)
         {
-            ShortestPath dijkstra = new Dijkstra(graph, sourceNode);
+            var dijkstra = new Dijkstra(graph, sourceNode);
             var result = dijkstra.GetShortestPath(destinationNode);
             Assert.Equal(expected, result);
         }
@@ -21,7 +21,7 @@ namespace ADN.Graphs.Tests
         [ClassData(typeof(WeightData))]
         public void GetWeight(Graph graph, int sourceNode, int destinationNode, double expected)
         {
-            ShortestPath dijkstra = new Dijkstra(graph, sourceNode);
+            var dijkstra = new Dijkstra(graph, sourceNode);
             var result = dijkstra.GetWeight(destinationNode);
             Assert.Equal(expected, result);
         }

@@ -12,7 +12,7 @@ namespace ADN.Graphs.Tests
         [ClassData(typeof(ShortestPathData))]
         public void GetShortestPath(Graph graph, int sourceNode, int destinationNode, int[] expected)
         {
-            ShortestPath bellmanFord = new BellmanFord(graph, sourceNode);
+            var bellmanFord = new BellmanFord(graph, sourceNode);
             var result = bellmanFord.GetShortestPath(destinationNode);
             Assert.Equal(expected, result);
         }
@@ -21,7 +21,7 @@ namespace ADN.Graphs.Tests
         [ClassData(typeof(WeightData))]
         public void GetWeight(Graph graph, int sourceNode, int destinationNode, double expected)
         {
-            ShortestPath bellmanFord = new BellmanFord(graph, sourceNode);
+            var bellmanFord = new BellmanFord(graph, sourceNode);
             var result = bellmanFord.GetWeight(destinationNode);
             Assert.Equal(expected, result);
         }

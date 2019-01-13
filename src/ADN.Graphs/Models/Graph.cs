@@ -21,7 +21,7 @@ namespace ADN.Graphs
 
         private List<Edge>[] _adjacencyEdges;
         private double[,] _matrix;
-        private bool _directed;
+        private readonly bool _directed;
 
         /// <summary>
         /// Class constructor.
@@ -49,6 +49,17 @@ namespace ADN.Graphs
         /// <summary>
         /// Number of vertices in the graph.
         /// </summary>
+        /// <example>
+        /// <code lang="csharp">
+        /// var verticesCount = 3;
+        /// var graph = new Graph(verticesCount);
+        /// var result = graph.VerticesCount;
+        /// 
+        /// /*
+        /// result is 3
+        /// */
+        /// </code>
+        /// </example>
         public int VerticesCount
         {
             get { return _matrix.GetLength(0); }
@@ -57,12 +68,32 @@ namespace ADN.Graphs
         /// <summary>
         /// Number of edges in the graph.
         /// </summary>
+        /// <example>
+        /// <code lang="csharp">
+        /// var verticesCount = 3;
+        /// var graph = new Graph(verticesCount);
+        /// // graph initialization
+        /// var result = graph.EdgesCount;
+        /// </code>
+        /// </example>
         public int EdgesCount { get; private set; }
 
         /// <summary>
         /// Add an edge in the graph.
         /// </summary>
         /// <param name="edge">Edge to add.</param>
+        /// <example>
+        /// <code lang="csharp">
+        /// var verticesCount = 3;
+        /// var graph = new Graph(verticesCount);
+        /// graph.AddEdge(new Graph.Edge
+        /// {
+        ///     Source = 0,
+        ///     Destination = 1,
+        ///     Weight = 10
+        /// });
+        /// </code>
+        /// </example>
         public void AddEdge(Edge edge)
         {
             EdgesCount++;
@@ -85,6 +116,14 @@ namespace ADN.Graphs
         /// Get a mtatrix that represents the graph.
         /// </summary>
         /// <returns>A mtatrix that represents the graph.</returns>
+        /// <example>
+        /// <code lang="csharp">
+        /// var verticesCount = 3;
+        /// var graph = new Graph(verticesCount);
+        /// // graph initialization
+        /// var result = graph.GetMatrix();
+        /// </code>
+        /// </example>
         public double[,] GetMatrix()
         {
             return _matrix;
@@ -95,6 +134,19 @@ namespace ADN.Graphs
         /// </summary>
         /// <param name="vertex">Origen vertex.</param>
         /// <returns>Edges that connects with the adjancency vertices.</returns>
+        /// <example>
+        /// <code lang="csharp">
+        /// var verticesCount = 3;
+        /// var graph = new Graph(verticesCount);
+        /// // graph initialization
+        /// var adjancencyVertex = 0;
+        /// var result = graph.Adjacency(adjancencyVertex);
+        /// 
+        /// /*
+        /// result is a Graph.Edge[]
+        /// */
+        /// </code>
+        /// </example>
         public Edge[] Adjacency(int vertex)
         {
             return _adjacencyEdges[vertex].ToArray();

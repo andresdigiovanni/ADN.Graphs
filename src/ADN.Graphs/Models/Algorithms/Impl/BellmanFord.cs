@@ -8,13 +8,27 @@ namespace ADN.Graphs
     /// <summary>
     /// A class that implements BellmanFord algorithm.
     /// </summary>
-    public class BellmanFord : ShortestPath
+    public class BellmanFord : ShortestPath, IShortestPathAlgorithm
     {
         /// <summary>
         /// BellmanFord algorithm to get the minimum path.
         /// </summary>
         /// <param name="graph">Graph to calculate the minimum path.</param>
         /// <param name="sourceNode">Source graph node.</param>
+        /// <example>
+        /// <code lang="csharp">
+        /// var graph = new double[,]
+        /// {
+        /// //    0   1   2   3
+        ///     { 0,  3,  0,  0 }, // 0
+        ///     { 0,  0,  5,  0 }, // 1
+        ///     { 0,  0,  0,  9 }, // 2
+        ///     { 0,  0,  0,  0 }, // 3
+        /// };
+        /// var sourceNode = 0;
+        /// var bellmanFord = new BellmanFord(graph, sourceNode);
+        /// </code>
+        /// </example>
         public BellmanFord(Graph graph, int sourceNode)
         {
             int verticesCount = graph.VerticesCount;
