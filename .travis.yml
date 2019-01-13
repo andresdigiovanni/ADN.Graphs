@@ -1,6 +1,6 @@
 language: csharp
 solution: ADN.Graphs.sln
-mono: none
+mono: latest
 dotnet: 2.0.0
 script:
   - dotnet restore

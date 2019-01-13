@@ -8,7 +8,7 @@
     <Company>ADN</Company>	
     <Product>ADN.Graphs</Product>
     <Description>ADN.Graphs is a cross-platform open-source library which provides graphs utilities to .NET developers</Description>
-    <Copyright>Copyright © Andrés Di Giovanni 2018</Copyright>
+    <Copyright>Copyright © Andrés Di Giovanni 2019</Copyright>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseUrl>https://github.com/andresdigiovanni/ADN.Graphs/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/andresdigiovanni/ADN.Graphs</PackageProjectUrl>
@@ -17,5 +17,20 @@
     <RepositoryUrl>https://github.com/andresdigiovanni/ADN.Graphs</RepositoryUrl> 
     <PackageIconUrl>https://raw.githubusercontent.com/andresdigiovanni/ADN.Graphs/master/icon.png</PackageIconUrl>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>ADN.Graphs.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Vsxmd" Version="1.3.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 
 </Project>

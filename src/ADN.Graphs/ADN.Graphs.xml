@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ADN.Graphs</name>
+    </assembly>
+    <members>
+        <member name="T:ADN.Graphs.BellmanFord">
+            <summary>
+            A class that implements BellmanFord algorithm.
+            </summary>
+        </member>
+        <member name="M:ADN.Graphs.BellmanFord.#ctor(ADN.Graphs.Graph,System.Int32)">
+            <summary>
+            BellmanFord algorithm to get the minimum path.
+            </summary>
+            <param name="graph">Graph to calculate the minimum path.</param>
+            <param name="sourceNode">Source graph node.</param>
+            <example>
+            <code lang="csharp">
+            var graph = new double[,]
+            {
+            //    0   1   2   3
+                { 0,  3,  0,  0 }, // 0
+                { 0,  0,  5,  0 }, // 1
+                { 0,  0,  0,  9 }, // 2
+                { 0,  0,  0,  0 }, // 3
+            };
+            var sourceNode = 0;
+            var bellmanFord = new BellmanFord(graph, sourceNode);
+            </code>
+            </example>
+        </member>
+        <member name="T:ADN.Graphs.Dijkstra">
+            <summary>
+            A class that implements Dijkstra algorithm.
+            </summary>
+        </member>
+        <member name="M:ADN.Graphs.Dijkstra.#ctor(ADN.Graphs.Graph,System.Int32)">
+            <summary>
+            Dijkstra algorithm to get the minimum path.
+            </summary>
+            <param name="graph">Graph to calculate the minimum path.</param>
+            <param name="sourceNode">Source graph node.</param>
+            <example>
+            <code lang="csharp">
+            var graph = new double[,]
+            {
+            //    0   1   2   3
+                { 0,  3,  0,  0 }, // 0
+                { 0,  0,  5,  0 }, // 1
+                { 0,  0,  0,  9 }, // 2
+                { 0,  0,  0,  0 }, // 3
+            };
+            var sourceNode = 0;
+            var dijkstra = new Dijkstra(graph, sourceNode);
+            </code>
+            </example>
+        </member>
+        <member name="T:ADN.Graphs.Graph">
+            <summary>
+            A class that represents a graph.
+            </summary>
+        </member>
+        <member name="T:ADN.Graphs.Graph.Edge">
+            <summary>
+            Represents an edge of the graph.
+            </summary>
+        </member>
+        <member name="M:ADN.Graphs.Graph.#ctor(System.Int32,System.Boolean)">
+            <summary>
+            Class constructor.
+            </summary>
+            <param name="verticesCount">Number of vertices in the graph.</param>
+            <param name="directed">True if is a direct graph, false otherwise.</param>
+        </member>
+        <member name="P:ADN.Graphs.Graph.VerticesCount">
+            <summary>
+            Number of vertices in the graph.
+            </summary>
+            <example>
+            <code lang="csharp">
+            var verticesCount = 3;
+            var graph = new Graph(verticesCount);
+            var result = graph.VerticesCount;
+            
+            /*
+            result is 3
+            */
+            </code>
+            </example>
+        </member>
+        <member name="P:ADN.Graphs.Graph.EdgesCount">
+            <summary>
+            Number of edges in the graph.
+            </summary>
+            <example>
+            <code lang="csharp">
+            var verticesCount = 3;
+            var graph = new Graph(verticesCount);
+            // graph initialization
+            var result = graph.EdgesCount;
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.Graphs.Graph.AddEdge(ADN.Graphs.Graph.Edge)">
+            <summary>
+            Add an edge in the graph.
+            </summary>
+            <param name="edge">Edge to add.</param>
+            <example>
+            <code lang="csharp">
+            var verticesCount = 3;
+            var graph = new Graph(verticesCount);
+            graph.AddEdge(new Graph.Edge
+            {
+                Source = 0,
+                Destination = 1,
+                Weight = 10
+            });
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.Graphs.Graph.GetMatrix">
+            <summary>
+            Get a mtatrix that represents the graph.
+            </summary>
+            <returns>A mtatrix that represents the graph.</returns>
+            <example>
+            <code lang="csharp">
+            var verticesCount = 3;
+            var graph = new Graph(verticesCount);
+            // graph initialization
+            var result = graph.GetMatrix();
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.Graphs.Graph.Adjacency(System.Int32)">
+            <summary>
+            Gets the edges that connects a given vertex to the adjancency vertices.
+            </summary>
+            <param name="vertex">Origen vertex.</param>
+            <returns>Edges that connects with the adjancency vertices.</returns>
+            <example>
+            <code lang="csharp">
+            var verticesCount = 3;
+            var graph = new Graph(verticesCount);
+            // graph initialization
+            var adjancencyVertex = 0;
+            var result = graph.Adjacency(adjancencyVertex);
+            
+            /*
+            result is a Graph.Edge[]
+            */
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.Graphs.ShortestPath.GetShortestPath(System.Int32)">
+            <summary>
+            Get the minimum path.
+            </summary>
+            <param name="destinationNode">Destination graph node.</param>
+            <returns>Minimum path.</returns>
+            <example>
+            <code lang="csharp">
+            var graph = new double[,]
+            {
+            //    0   1   2   3
+                { 0,  3,  0,  0 }, // 0
+                { 0,  0,  5,  0 }, // 1
+                { 0,  0,  0,  9 }, // 2
+                { 0,  0,  0,  0 }, // 3
+            };
+            var sourceNode = 0;
+            var destinationNode = 3;
+            var bellmanFord = new BellmanFord(graph, sourceNode);
+            var result = bellmanFord.GetShortestPath(destinationNode);
+            
+            /*
+            result is { 0, 1, 2, 3 }
+            */
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.Graphs.ShortestPath.GetWeight(System.Int32)">
+            <summary>
+            Get the minimum weight.
+            </summary>
+            <param name="destinationNode">Destination graph node.</param>
+            <returns>Minimum weight.</returns>
+            <example>
+            <code lang="csharp">
+            var graph = new double[,]
+            {
+            //    0   1   2   3
+                { 0,  3,  0,  0 }, // 0
+                { 0,  0,  5,  0 }, // 1
+                { 0,  0,  0,  9 }, // 2
+                { 0,  0,  0,  0 }, // 3
+            };
+            var sourceNode = 0;
+            var destinationNode = 3;
+            var bellmanFord = new BellmanFord(graph, sourceNode);
+            var result = bellmanFord.GetWeight(destinationNode);
+            
+            /*
+            result is 17
+            */
+            </code>
+            </example>
+        </member>
+    </members>
+</doc>
