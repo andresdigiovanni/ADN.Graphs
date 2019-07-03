@@ -5,6 +5,8 @@ ADN.Graphs is a cross-platform open-source library which provides graphs utiliti
 [![Build Status](https://travis-ci.org/andresdigiovanni/ADN.Graphs.svg?branch=master)](https://travis-ci.org/andresdigiovanni/ADN.Graphs)
 [![NuGet](https://img.shields.io/nuget/v/ADN.Graphs.svg)](https://www.nuget.org/packages/ADN.Graphs/)
 [![BCH compliance](https://bettercodehub.com/edge/badge/andresdigiovanni/ADN.Graphs?branch=master)](https://bettercodehub.com/)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=andresdigiovanni_ADN.Graphs&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=andresdigiovanni_ADN.Graphs)
+[![Quality](https://sonarcloud.io/api/project_badges/measure?project=andresdigiovanni_ADN.Graphs&metric=alert_status)](https://sonarcloud.io/dashboard?id=andresdigiovanni_ADN.Graphs)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Installation
