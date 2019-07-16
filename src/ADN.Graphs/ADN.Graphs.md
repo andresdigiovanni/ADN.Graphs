@@ -1,218 +1,190 @@
-<a name='assembly'></a>
 # ADN.Graphs
 
-## Contents
+# Content
 
-- [BellmanFord](#T-ADN-Graphs-BellmanFord 'ADN.Graphs.BellmanFord')
-  - [#ctor(graph,sourceNode)](#M-ADN-Graphs-BellmanFord-#ctor-ADN-Graphs-Graph,System-Int32- 'ADN.Graphs.BellmanFord.#ctor(ADN.Graphs.Graph,System.Int32)')
-- [Dijkstra](#T-ADN-Graphs-Dijkstra 'ADN.Graphs.Dijkstra')
-  - [#ctor(graph,sourceNode)](#M-ADN-Graphs-Dijkstra-#ctor-ADN-Graphs-Graph,System-Int32- 'ADN.Graphs.Dijkstra.#ctor(ADN.Graphs.Graph,System.Int32)')
-- [Edge](#T-ADN-Graphs-Graph-Edge 'ADN.Graphs.Graph.Edge')
-- [Graph](#T-ADN-Graphs-Graph 'ADN.Graphs.Graph')
-  - [#ctor(verticesCount,directed)](#M-ADN-Graphs-Graph-#ctor-System-Int32,System-Boolean- 'ADN.Graphs.Graph.#ctor(System.Int32,System.Boolean)')
-  - [EdgesCount](#P-ADN-Graphs-Graph-EdgesCount 'ADN.Graphs.Graph.EdgesCount')
-  - [VerticesCount](#P-ADN-Graphs-Graph-VerticesCount 'ADN.Graphs.Graph.VerticesCount')
-  - [AddEdge(edge)](#M-ADN-Graphs-Graph-AddEdge-ADN-Graphs-Graph-Edge- 'ADN.Graphs.Graph.AddEdge(ADN.Graphs.Graph.Edge)')
-  - [Adjacency(vertex)](#M-ADN-Graphs-Graph-Adjacency-System-Int32- 'ADN.Graphs.Graph.Adjacency(System.Int32)')
-  - [GetMatrix()](#M-ADN-Graphs-Graph-GetMatrix 'ADN.Graphs.Graph.GetMatrix')
-- [ShortestPath](#T-ADN-Graphs-ShortestPath 'ADN.Graphs.ShortestPath')
-  - [GetShortestPath(destinationNode)](#M-ADN-Graphs-ShortestPath-GetShortestPath-System-Int32- 'ADN.Graphs.ShortestPath.GetShortestPath(System.Int32)')
-  - [GetWeight(destinationNode)](#M-ADN-Graphs-ShortestPath-GetWeight-System-Int32- 'ADN.Graphs.ShortestPath.GetWeight(System.Int32)')
+- [BellmanFord](#T:ADN.Graphs.BellmanFord)
 
-<a name='T-ADN-Graphs-BellmanFord'></a>
-## BellmanFord `type`
+  - [Constructor(graph, sourceNode)](#BellmanFord.#ctor(graph,sourceNode))
 
-##### Namespace
+- [Dijkstra](#T:ADN.Graphs.Dijkstra)
 
-ADN.Graphs
+  - [Constructor(graph, sourceNode)](#Dijkstra.#ctor(graph,sourceNode))
 
-##### Summary
+- [Graph](#T:ADN.Graphs.Graph)
+
+  - [Constructor(verticesCount, directed)](#Graph.#ctor(verticesCount,directed))
+
+  - [AddEdge(edge)](#Graph.AddEdge(edge))
+
+  - [Adjacency(vertex)](#Graph.Adjacency(vertex))
+
+- [Graph.Edge](#T:ADN.Graphs.Graph.Edge)
+
+  - [.Graph.EdgesCount](#P:ADN.Graphs.Graph.EdgesCount)
+
+  - [Graph.GetMatrix](#Graph.GetMatrix)
+
+  - [.Graph.VerticesCount](#P:ADN.Graphs.Graph.VerticesCount)
+
+  - [ShortestPath.GetShortestPath(destinationNode)](#ShortestPath.GetShortestPath(destinationNode))
+
+  - [ShortestPath.GetWeight(destinationNode)](#ShortestPath.GetWeight(destinationNode))
+
+<a name='T:ADN.Graphs.BellmanFord'></a>
+
+
+## BellmanFord
 
 A class that implements BellmanFord algorithm.
 
-<a name='M-ADN-Graphs-BellmanFord-#ctor-ADN-Graphs-Graph,System-Int32-'></a>
-### #ctor(graph,sourceNode) `constructor`
+<a name='BellmanFord.#ctor(graph,sourceNode)'></a>
 
-##### Summary
+
+### Constructor(graph, sourceNode)
 
 BellmanFord algorithm to get the minimum path.
 
-##### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| graph | [ADN.Graphs.Graph](#T-ADN-Graphs-Graph 'ADN.Graphs.Graph') | Graph to calculate the minimum path. |
-| sourceNode | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Source graph node. |
+#### Parameters
 
-##### Example
+| Name | Description |
+| ---- | ----------- |
+| graph | *ADN.Graphs.Graph*<br>Graph to calculate the minimum path. |
+
+#### Parameters
+
+| sourceNode | *System.Int32*<br>Source graph node. |
+
+
+#### Example
 
 ```csharp
 var graph = new double[,]
 {
 //    0   1   2   3
-    { 0,  3,  0,  0 }, // 0
-    { 0,  0,  5,  0 }, // 1
-    { 0,  0,  0,  9 }, // 2
-    { 0,  0,  0,  0 }, // 3
+{ 0,  3,  0,  0 }, // 0
+{ 0,  0,  5,  0 }, // 1
+{ 0,  0,  0,  9 }, // 2
+{ 0,  0,  0,  0 }, // 3
 };
 var sourceNode = 0;
-var bellmanFord = new BellmanFord(graph, sourceNode); 
+var bellmanFord = new BellmanFord(graph, sourceNode);
 ```
 
-<a name='T-ADN-Graphs-Dijkstra'></a>
-## Dijkstra `type`
+<a name='T:ADN.Graphs.Dijkstra'></a>
 
-##### Namespace
 
-ADN.Graphs
-
-##### Summary
+## Dijkstra
 
 A class that implements Dijkstra algorithm.
 
-<a name='M-ADN-Graphs-Dijkstra-#ctor-ADN-Graphs-Graph,System-Int32-'></a>
-### #ctor(graph,sourceNode) `constructor`
+<a name='Dijkstra.#ctor(graph,sourceNode)'></a>
 
-##### Summary
+
+### Constructor(graph, sourceNode)
 
 Dijkstra algorithm to get the minimum path.
 
-##### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| graph | [ADN.Graphs.Graph](#T-ADN-Graphs-Graph 'ADN.Graphs.Graph') | Graph to calculate the minimum path. |
-| sourceNode | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Source graph node. |
+#### Parameters
 
-##### Example
+| Name | Description |
+| ---- | ----------- |
+| graph | *ADN.Graphs.Graph*<br>Graph to calculate the minimum path. |
+
+#### Parameters
+
+| sourceNode | *System.Int32*<br>Source graph node. |
+
+
+#### Example
 
 ```csharp
 var graph = new double[,]
 {
 //    0   1   2   3
-    { 0,  3,  0,  0 }, // 0
-    { 0,  0,  5,  0 }, // 1
-    { 0,  0,  0,  9 }, // 2
-    { 0,  0,  0,  0 }, // 3
+{ 0,  3,  0,  0 }, // 0
+{ 0,  0,  5,  0 }, // 1
+{ 0,  0,  0,  9 }, // 2
+{ 0,  0,  0,  0 }, // 3
 };
 var sourceNode = 0;
-var dijkstra = new Dijkstra(graph, sourceNode); 
+var dijkstra = new Dijkstra(graph, sourceNode);
 ```
 
-<a name='T-ADN-Graphs-Graph-Edge'></a>
-## Edge `type`
+<a name='T:ADN.Graphs.Graph'></a>
 
-##### Namespace
 
-ADN.Graphs.Graph
-
-##### Summary
-
-Represents an edge of the graph.
-
-<a name='T-ADN-Graphs-Graph'></a>
-## Graph `type`
-
-##### Namespace
-
-ADN.Graphs
-
-##### Summary
+## Graph
 
 A class that represents a graph.
 
-<a name='M-ADN-Graphs-Graph-#ctor-System-Int32,System-Boolean-'></a>
-### #ctor(verticesCount,directed) `constructor`
+<a name='Graph.#ctor(verticesCount,directed)'></a>
 
-##### Summary
+
+### Constructor(verticesCount, directed)
 
 Class constructor.
 
-##### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| verticesCount | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Number of vertices in the graph. |
-| directed | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | True if is a direct graph, false otherwise. |
+#### Parameters
 
-<a name='P-ADN-Graphs-Graph-EdgesCount'></a>
-### EdgesCount `property`
+| Name | Description |
+| ---- | ----------- |
+| verticesCount | *System.Int32*<br>Number of vertices in the graph. |
 
-##### Summary
+#### Parameters
 
-Number of edges in the graph.
+| directed | *System.Boolean*<br>True if is a direct graph, false otherwise. |
+<a name='Graph.AddEdge(edge)'></a>
 
-##### Example
 
-```csharp
-var verticesCount = 3;
-var graph = new Graph(verticesCount);
-// graph initialization
-var result = graph.EdgesCount; 
-```
-
-<a name='P-ADN-Graphs-Graph-VerticesCount'></a>
-### VerticesCount `property`
-
-##### Summary
-
-Number of vertices in the graph.
-
-##### Example
-
-```csharp
-var verticesCount = 3;
-var graph = new Graph(verticesCount);
-var result = graph.VerticesCount;
-/*
-result is 3
-*/ 
-```
-
-<a name='M-ADN-Graphs-Graph-AddEdge-ADN-Graphs-Graph-Edge-'></a>
-### AddEdge(edge) `method`
-
-##### Summary
+### AddEdge(edge)
 
 Add an edge in the graph.
 
-##### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| edge | [ADN.Graphs.Graph.Edge](#T-ADN-Graphs-Graph-Edge 'ADN.Graphs.Graph.Edge') | Edge to add. |
+#### Parameters
 
-##### Example
+| Name | Description |
+| ---- | ----------- |
+| edge | *ADN.Graphs.Graph.Edge*<br>Edge to add. |
+
+
+#### Example
 
 ```csharp
 var verticesCount = 3;
 var graph = new Graph(verticesCount);
 graph.AddEdge(new Graph.Edge
 {
-    Source = 0,
-    Destination = 1,
-    Weight = 10
-}); 
+Source = 0,
+Destination = 1,
+Weight = 10
+});
 ```
 
-<a name='M-ADN-Graphs-Graph-Adjacency-System-Int32-'></a>
-### Adjacency(vertex) `method`
+<a name='Graph.Adjacency(vertex)'></a>
 
-##### Summary
+
+### Adjacency(vertex)
 
 Gets the edges that connects a given vertex to the adjancency vertices.
 
-##### Returns
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| vertex | *System.Int32*<br>Origen vertex. |
+
+
+#### Returns
 
 Edges that connects with the adjancency vertices.
 
-##### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| vertex | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Origen vertex. |
-
-##### Example
+#### Example
 
 ```csharp
 var verticesCount = 3;
@@ -220,112 +192,157 @@ var graph = new Graph(verticesCount);
 // graph initialization
 var adjancencyVertex = 0;
 var result = graph.Adjacency(adjancencyVertex);
+
 /*
 result is a Graph.Edge[]
-*/ 
+*/
 ```
 
-<a name='M-ADN-Graphs-Graph-GetMatrix'></a>
-### GetMatrix() `method`
+<a name='T:ADN.Graphs.Graph.Edge'></a>
 
-##### Summary
 
-Get a mtatrix that represents the graph.
+## Graph.Edge
 
-##### Returns
+Represents an edge of the graph.
 
-A mtatrix that represents the graph.
+<a name='P:ADN.Graphs.Graph.EdgesCount'></a>
 
-##### Parameters
 
-This method has no parameters.
+### .Graph.EdgesCount
 
-##### Example
+Number of edges in the graph.
+
+
+#### Example
 
 ```csharp
 var verticesCount = 3;
 var graph = new Graph(verticesCount);
 // graph initialization
-var result = graph.GetMatrix(); 
+var result = graph.EdgesCount;
 ```
 
-<a name='T-ADN-Graphs-ShortestPath'></a>
-## ShortestPath `type`
+<a name='Graph.GetMatrix'></a>
 
-##### Namespace
 
-ADN.Graphs
+### Graph.GetMatrix
 
-<a name='M-ADN-Graphs-ShortestPath-GetShortestPath-System-Int32-'></a>
-### GetShortestPath(destinationNode) `method`
+Get a mtatrix that represents the graph.
 
-##### Summary
+
+#### Returns
+
+A mtatrix that represents the graph.
+
+
+#### Example
+
+```csharp
+var verticesCount = 3;
+var graph = new Graph(verticesCount);
+// graph initialization
+var result = graph.GetMatrix();
+```
+
+<a name='P:ADN.Graphs.Graph.VerticesCount'></a>
+
+
+### .Graph.VerticesCount
+
+Number of vertices in the graph.
+
+
+#### Example
+
+```csharp
+var verticesCount = 3;
+var graph = new Graph(verticesCount);
+var result = graph.VerticesCount;
+
+/*
+result is 3
+*/
+```
+
+<a name='ShortestPath.GetShortestPath(destinationNode)'></a>
+
+
+### ShortestPath.GetShortestPath(destinationNode)
 
 Get the minimum path.
 
-##### Returns
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| destinationNode | *System.Int32*<br>Destination graph node. |
+
+
+#### Returns
 
 Minimum path.
 
-##### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| destinationNode | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Destination graph node. |
-
-##### Example
+#### Example
 
 ```csharp
 var graph = new double[,]
 {
 //    0   1   2   3
-    { 0,  3,  0,  0 }, // 0
-    { 0,  0,  5,  0 }, // 1
-    { 0,  0,  0,  9 }, // 2
-    { 0,  0,  0,  0 }, // 3
+{ 0,  3,  0,  0 }, // 0
+{ 0,  0,  5,  0 }, // 1
+{ 0,  0,  0,  9 }, // 2
+{ 0,  0,  0,  0 }, // 3
 };
 var sourceNode = 0;
 var destinationNode = 3;
 var bellmanFord = new BellmanFord(graph, sourceNode);
 var result = bellmanFord.GetShortestPath(destinationNode);
+
 /*
 result is { 0, 1, 2, 3 }
-*/ 
+*/
 ```
 
-<a name='M-ADN-Graphs-ShortestPath-GetWeight-System-Int32-'></a>
-### GetWeight(destinationNode) `method`
+<a name='ShortestPath.GetWeight(destinationNode)'></a>
 
-##### Summary
+
+### ShortestPath.GetWeight(destinationNode)
 
 Get the minimum weight.
 
-##### Returns
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| destinationNode | *System.Int32*<br>Destination graph node. |
+
+
+#### Returns
 
 Minimum weight.
 
-##### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| destinationNode | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Destination graph node. |
-
-##### Example
+#### Example
 
 ```csharp
 var graph = new double[,]
 {
 //    0   1   2   3
-    { 0,  3,  0,  0 }, // 0
-    { 0,  0,  5,  0 }, // 1
-    { 0,  0,  0,  9 }, // 2
-    { 0,  0,  0,  0 }, // 3
+{ 0,  3,  0,  0 }, // 0
+{ 0,  0,  5,  0 }, // 1
+{ 0,  0,  0,  9 }, // 2
+{ 0,  0,  0,  0 }, // 3
 };
 var sourceNode = 0;
 var destinationNode = 3;
 var bellmanFord = new BellmanFord(graph, sourceNode);
 var result = bellmanFord.GetWeight(destinationNode);
+
 /*
 result is 17
-*/ 
+*/
 ```
+
